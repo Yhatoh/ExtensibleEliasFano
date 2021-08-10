@@ -53,22 +53,22 @@ int main(int argc, char *argv[]) {
     for(uint32_t i = 0; i < n; i++){
       ret = s2Tuples->append(numbers[i]);
     }
-    cout << ret << " Memory Used Scheme 2 using tuples vector with buffer size " << bufferSizes[i] << ": " << s2Tuples->size() << "\n";
+    cout << ret << " Memory Used Scheme 2 using tuples vector with buffer size " << bufferSizes[i] << ": " << ((double) s2Tuples->size() * 8.0 )/((double)n) << "\n";
 
     for(uint32_t i = 0; i < n; i++){
       ret = s2RedBlack->append(numbers[i]);
     }
-    cout << ret << " Memory Used Scheme 2 using red black tree with buffer size " << bufferSizes[i] << ": " << s2RedBlack->size() << "\n";
+    cout << ret << " Memory Used Scheme 2 using red black tree with buffer size " << bufferSizes[i] << ": " << ((double) s2RedBlack->size() * 8.0 )/((double)n) << "\n";
 
     for(uint32_t i = 0; i < n; i++){
       ret = s4Tuples->append(numbers[i]);
     }
-    cout << ret << " Memory Used Scheme 4 using tuples vector with buffer size " << bufferSizes[i] << ": " << s4Tuples->size() <<  "\n";
+    cout << ret << " Memory Used Scheme 4 using tuples vector with buffer size " << bufferSizes[i] << ": " << ((double) s4Tuples->size() * 8.0 )/((double)n) <<  "\n";
 
     for(uint32_t i = 0; i < n; i++){
       ret = s4RedBlack->append(numbers[i]);
     }
-    cout << ret << " Memory Used Scheme 4 using red black tree with buffer size " << bufferSizes[i] << ": " << s4RedBlack->size() <<  "\n";
+    cout << ret << " Memory Used Scheme 4 using red black tree with buffer size " << bufferSizes[i] << ": " << ((double) s4RedBlack->size() * 8.0 )/((double)n) <<  "\n";
   }
 
   bit_vector b = bit_vector(line.length(), 0);
@@ -79,6 +79,6 @@ int main(int argc, char *argv[]) {
 
   ret = 1;
   sd_vector<> sdb(b);
-  cout << ret << " Memory Used sdb " << size_in_bytes(sdb) << "\n";
+  cout << ret << " Memory Used sdb " << ((double)size_in_bytes(sdb) * 8.0) / ((double)n) << "\n";
   return 0;
 }
