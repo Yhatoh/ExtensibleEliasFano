@@ -1,0 +1,9 @@
+#!/bin/bash
+for dir in tests/test/*
+do
+  for file in $dir/*
+  do
+    echo "$file"
+    ./bin/test < $file > result/$file
+  done
+done

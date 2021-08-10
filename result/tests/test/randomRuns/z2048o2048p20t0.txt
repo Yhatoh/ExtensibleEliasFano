@@ -1,0 +1,13 @@
+1 Memory Used Scheme 2 using tuples vector with buffer size 1024: 354417
+1 Memory Used Scheme 2 using red black tree with buffer size 1024: 364169
+1 Memory Used Scheme 4 using tuples vector with buffer size 1024: 222871
+1 Memory Used Scheme 4 using red black tree with buffer size 1024: 227931
+1 Memory Used Scheme 2 using tuples vector with buffer size 2048: 304077
+1 Memory Used Scheme 2 using red black tree with buffer size 2048: 308941
+1 Memory Used Scheme 4 using tuples vector with buffer size 2048: 201841
+1 Memory Used Scheme 4 using red black tree with buffer size 2048: 204353
+1 Memory Used Scheme 2 using tuples vector with buffer size 4096: 297695
+1 Memory Used Scheme 2 using red black tree with buffer size 4096: 300167
+1 Memory Used Scheme 4 using tuples vector with buffer size 4096: 214774
+1 Memory Used Scheme 4 using red black tree with buffer size 4096: 216090
+1 Memory Used sdb 2147150

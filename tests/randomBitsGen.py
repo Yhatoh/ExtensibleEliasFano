@@ -1,23 +1,8 @@
 import random
 
-def operation(ones, writedBits, testFile):
-  retList = [False, False, False]
-  randResult = random.randint(1, 100)
-  if randResult <= 10:
-    retList[0] = True
-    randResult = random.randint(0, 1)
-    if randResult == 0 and ones > 0:
-      retList[1] = 's'
-      retList[2] = random.randint(1, ones)
-    else:
-      retList[1] = 'r'
-      retList[2] = random.randint(0, writedBits)
-  if retList[0]:
-    testFile.write(f'{retList[1]}{retList[2]}{retList[1]}')
-
 testCases = 1
 bitLimit = 100000000
-probabilities = [5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120]
+probabilities = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
 
 random.seed(2015735042)
 
@@ -35,6 +20,5 @@ for test in range(testCases):
         bit = 0
       onesCount += bit
       testFile.write(f'{bit}')
-      operation(onesCount, bitPos, testFile)
     testFile.close()
     print(f'./randomBits/p{probabilitie}t{test}.txt')
