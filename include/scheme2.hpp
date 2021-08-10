@@ -14,14 +14,14 @@ template<class T>
 class Scheme2 {
   private:
     // se usa para recordar la ultima posicion ingresada
-    uint32_t buffer;
+    uint32_t lastPos;
     // se usa para saber si el primer numero del conjunto es 1 o no
-    char firstNum;
+    char fistPos;
     void *G;
     void *L;
   public:
     Scheme2(uint32_t bufferSize, char type);
-    uint32_t append(uint32_t number);
+    uint32_t append(uint32_t pos);
     uint32_t size();
 };
 
@@ -37,8 +37,8 @@ char type,           corresponde al tipo de estructura se usa si tuples
 */
 template<class T>
 Scheme2<T>::Scheme2(uint32_t bufferSize, char type){
-  this->buffer = 0;
-  this->firstNum = '0';
+  this->lastPos = 0;
+  this->fistPos = '0';
   if(type == 'T'){
     this->G = new ExtensibleEliasFanoTuplesVector(bufferSize, linearSearch);
     this->L = new ExtensibleEliasFanoTuplesVector(bufferSize, linearSearch);
@@ -58,15 +58,15 @@ uint32_t pos,        la posición del 1 en el vector de bits
 */
 template<class T>
 uint32_t Scheme2<T>::append(uint32_t pos){
-  if(this->buffer) {
+  if(this->lastPos) {
     //not first element
-    if(pos - 1 == this->buffer) {
+    if(pos - 1 == this->lastPos) {
       //is a consecutive pos
       static_cast< T* >(this->L)->pushBit(0);
     } else {
       //is not a consecutive pos
       static_cast< T* >(this->L)->pushBit(1);
-      uint32_t cantZeros = pos - this->buffer - 1;
+      uint32_t cantZeros = pos - this->lastPos - 1;
       while(cantZeros-- > 1){
         static_cast< T* >(this->G)->pushBit(0);
       }
@@ -74,9 +74,9 @@ uint32_t Scheme2<T>::append(uint32_t pos){
     }
   } else {
     //first element 
-    if(pos - 1 == this->buffer) {
+    if(pos - 1 == this->lastPos) {
       //is 1
-      this->firstNum = '1';
+      this->fistPos = '1';
     } else {
       //is not 1
       uint32_t cantZeros = pos - 1;
@@ -86,7 +86,7 @@ uint32_t Scheme2<T>::append(uint32_t pos){
       static_cast< T* >(this->G)->pushBit(1);
     }
   }
-  this->buffer = pos;
+  this->lastPos = pos;
 
   return 1;
 }
@@ -96,11 +96,11 @@ uint32_t Scheme2<T>::append(uint32_t pos){
 Size
 
 retorna el tamaño total del esquema, siendo este la suma de los
-tamaños de G, L, buffer y firstNum
+tamaños de G, L, buffer y fistPos
 
 */
 template<class T>
 uint32_t Scheme2<T>::size(){
-  return static_cast< T* >(this->G)->size() + static_cast< T* >(this->L)->size() + sizeof(this->buffer) + sizeof(this->firstNum);
+  return static_cast< T* >(this->G)->size() + static_cast< T* >(this->L)->size() + sizeof(this->lastPos) + sizeof(this->fistPos);
 }
 #endif
