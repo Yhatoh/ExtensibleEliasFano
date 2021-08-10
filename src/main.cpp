@@ -37,7 +37,7 @@ int main(int argc, char *argv[]) {
   getline(std::cin, line);
   getline(std::cin, line);
   uint32_t n = 0;
-  while(n < line.size()){
+  while(n < line.length()){
     if(line[n++] == '1') numbers.push_back(n);
   }
   n = numbers.size();
@@ -71,8 +71,8 @@ int main(int argc, char *argv[]) {
     cout << ret << " Memory Used Scheme 4 using red black tree with buffer size " << bufferSizes[i] << ": " << s4RedBlack->size() <<  "\n";
   }
 
-  bit_vector b = bit_vector(line.size(), 0);
-  for(uint32_t i = 0; i < line.size(); i++){
+  bit_vector b = bit_vector(line.length(), 0);
+  for(uint32_t i = 0; i < line.length(); i++){
     //cout << i << "\n";
     if(line[i] == '1') b[i] = 1;
   }

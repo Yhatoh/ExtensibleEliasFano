@@ -13,7 +13,6 @@ Además, en la carpeta *src* el archivo main.cpp contiene el código para realiz
 En la carpeta *tests* se encuentran los 3 códigos usados para generados los test hablados en el trabajo. Y los test generados se encuentran en *test/test*, donde luego cada carpeta se separa por el grupo de test correspondiente.
 
 
-
 ## Complilación y ejecución
 
 ### Compilar
