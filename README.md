@@ -19,7 +19,7 @@ En la carpeta ```tests``` se encuentran los 3 códigos usados para generados los
 
 ### Compilar
 
-Para compilar, debe situarse a la altura del makefile, hacer ```make clean``` para borrar el archivo actual en la carpeta ```bing``` y luego hacer ```make``` esto le generá el archivo compilado en la carpeta ```bin```, llamado test.
+Para compilar, debe situarse a la altura del makefile, hacer ```make clean``` para borrar el archivo actual en la carpeta ```bin``` y luego hacer ```make``` esto le generá el archivo compilado en la carpeta ```bin```, llamado test.
 
 ### Ejecución
 
