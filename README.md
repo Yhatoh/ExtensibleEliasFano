@@ -14,6 +14,7 @@ Los archivos de test se encuentran en el archivo rar, en el siguiente link https
 
 En la carpeta ```tests``` se encuentran los 3 códigos usados para generados los test hablados en el trabajo. Y los test generados se encuentran en ```test/test```, donde luego cada carpeta se separa por el grupo de test correspondiente.
 
+En la carpeta ```result``` se encuentra los resultados obtenidos en los test aplicados para el informe.
 
 ## Complilación y ejecución
 
